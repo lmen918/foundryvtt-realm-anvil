@@ -1,0 +1,17 @@
+{
+  "id": "realm-anvil",
+  "title": "Realm Anvil",
+  "description": "DM world building tools for foundry vtt",
+  "authors": [
+    {
+      "name": "UrAltrEgo"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "12"
+  },
+  "esmodules": ["dist/scripts/module.js"]
+}
+
