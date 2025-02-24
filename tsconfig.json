@@ -23,7 +23,7 @@
     "noImplicitOverride": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "jsx": "react"
+    "jsx": "react",
   },
   "include": [
     "src"
