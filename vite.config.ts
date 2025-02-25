@@ -2,10 +2,37 @@ import typescript from "@rollup/plugin-typescript";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import copy from "rollup-plugin-copy";
-// import externalGlobals from "rollup-plugin-external-globals";
+import externalGlobals from "rollup-plugin-external-globals";
+
 // import * as fsPromises from "fs/promises";
 
 export default defineConfig({
+    define: {
+        'process.env': process.env
+    },
+    build: {
+        lib: {
+            entry: 'src/index.ts',
+            fileName: 'index.ts',
+            formats: ['es'],
+            name: 'realm-anvil',
+        },
+        rollupOptions: {
+            external: ['react', 'react-dom'],
+            input: 'src/index.ts',
+            output: {
+                dir: 'dist',
+                entryFileNames: 'index.js',
+                format: 'es',
+                // Ensure React is loaded from a CDN
+                globals: {
+                    react: 'React',
+                    'react-dom': 'ReactDOM',
+                }
+            }
+        },
+        sourcemap: true,
+    },
     plugins: [
         react(),
         typescript(),
@@ -22,34 +49,11 @@ export default defineConfig({
             ],
             hook: "writeBundle",
         }),
-        // externalGlobals({
-        //     react: 'React',
-        //     'react-dom': 'ReactDOM',
-        // })
+        externalGlobals({
+            react: 'React',
+            'react-dom': 'ReactDOM',
+        })
     ],
-    build: {
-        lib: {
-            entry: 'src/index.ts',
-            fileName: 'index.ts',
-            formats: ['es'],
-            name: 'realm-anvil',
-        },
-        rollupOptions: {
-            // external: ['react', 'react-dom'],
-            input: 'src/index.ts',
-            output: {
-                dir: 'dist',
-                entryFileNames: 'index.js',
-                format: 'es',
-                // Ensure React is loaded from a CDN
-                // globals: {
-                //     react: 'React',
-                //     'react-dom': 'ReactDOM',
-                // }
-            }
-        },
-        sourcemap: true,
-    },
 });
 
 // @ts-ignore

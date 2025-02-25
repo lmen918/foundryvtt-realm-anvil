@@ -19,7 +19,7 @@ export class RealmAnvilApplication extends Application  {
     // override render(force?: boolean, options?: RenderOptions<ApplicationOptions> ){
     //     return super.render(force, options);
     // }
-    //
+
     override activateListeners(html: JQuery): void {
         super.activateListeners(html);
 
@@ -39,7 +39,7 @@ export class RealmAnvilApplication extends Application  {
             )
         }
     }
-    //
+
     // close(options?: Application.CloseOptions): Promise<void> {
     //     // Clean up React components when the window closes
     //     const mountPoint = this.element.find('#react-root')[0];

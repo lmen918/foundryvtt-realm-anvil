@@ -1,6 +1,7 @@
 import React from "react";
 
 const RealmAnvil: React.FC = () => {
+
     return (
         <div className="RealmAnvil">
             <h1>Realm Anvil</h1>
