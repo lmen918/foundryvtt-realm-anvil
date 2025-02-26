@@ -16,21 +16,25 @@ export class RealmAnvilApplication extends Application {
         };
     }
 
-    override async getData() {
-        const data = await super.getData();
-        return {
-            ...data,
-            // Add any additional data the component needs
-        };
-    }
+    // Override the getData method
+    // override async getData() {
+    //     const data = await super.getData();
+    //     return {
+    //         ...data,
+    //         // Add any additional data the component needs
+    //     };
+    // }
 
+    // Override the render method
     // override render(force?: boolean, options?: RenderOptions<ApplicationOptions> ){
     //     return super.render(force, options);
     // }
 
+    // Activate listeners for the application
     override activateListeners(html: JQuery) {
         super.activateListeners(html);
 
+        // Find the mounting point and render React
         const mountPoint = html.find('#react-root')[0];
         if (mountPoint) {
            const root = createRoot(mountPoint);
@@ -40,53 +44,5 @@ export class RealmAnvilApplication extends Application {
                 )
             );
         }
-
-        // // Create a button to open the application
-        // const button = $(
-        //     `<button class="cc-sidebar-button" type="button"></button>`
-        // );
-        //
-        // // Insert button after the actors tab
-        // html.find(".directory-header .action-buttons").insertAfter(button);
-        //
-        // // Find the mounting point and render React
-        // button.on("click", () => {
-        //     const mountPoint = html.find('#react-root')[0];
-        //     if (mountPoint) {
-        //         const root = createRoot(mountPoint);
-        //         root.render(
-        //             React.createElement(React.StrictMode, null,
-        //                 React.createElement(RealmAnvil)
-        //             )
-        //         );
-        //     }
-        // });
     };
-
-    // html.find("realm-anvil-container").on("render", () => {
-    //     // Add any event listeners or other logic here
-    //     console.log("Realm Anvil Application Rendered");
-    // })
-    //
-    // Find the mounting point and render React
-    // const mountPoint = html.find('#react-root')[0];
-    // if (mountPoint) {
-    //     const root = createRoot(mountPoint);
-    //     root.render(
-    //         React.createElement(React.StrictMode, null,
-    //             React.createElement(RealmAnvil)
-    //         )
-    //     )
-    // }
-    // }
-    //
-    // close(options?: Application.CloseOptions): Promise<void> {
-    //     // Clean up React components when the window closes
-    //     const mountPoint = this.element.find('#react-root')[0];
-    //     if (mountPoint) {
-    //         const root = createRoot(mountPoint);
-    //         root.unmount();
-    //     }
-    //     return super.close(options);
-    // }
 }
