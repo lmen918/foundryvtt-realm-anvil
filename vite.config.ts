@@ -2,7 +2,9 @@ import typescript from "@rollup/plugin-typescript";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import copy from "rollup-plugin-copy";
+import path from "path";
 import externalGlobals from "rollup-plugin-external-globals";
+// import tailwindcss from '@tailwindcss/vite';
 
 // import * as fsPromises from "fs/promises";
 
@@ -32,6 +34,11 @@ export default defineConfig({
             }
         },
         sourcemap: true,
+    },
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+        },
     },
     plugins: [
         react(),

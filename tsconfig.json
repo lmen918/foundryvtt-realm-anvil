@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "files": [],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": [
       "@league-of-foundry-developers/foundry-vtt-types"
     ],
@@ -10,7 +15,7 @@
       "ESNext",
       "DOM"
     ],
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "strict": true,
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -27,5 +32,13 @@
   },
   "include": [
     "src"
-    ]
+    ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
 }
