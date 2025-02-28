@@ -1,6 +1,7 @@
 import {id as moduleId} from "../module.json";
 import RealmAnvil from "./components/realmAnvil";
 import {createRoot} from "react-dom/client";
+import "/src/styles/realmAnvil.css";
 import React from "react";
 
 export class RealmAnvilApplication extends Application {

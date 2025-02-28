@@ -1,9 +1,9 @@
-@import "tailwindcss";
+/*@import "tailwindcss";*/
+/*@import "tailwindcss/preflight";*/
 
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
-@import "tailwindcss/preflight";
 @tailwind utilities;
 
 .realm-anvil-container {

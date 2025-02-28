@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/realmAnvil.css";
+
 import {SimpleDialogBox} from "@/components/realm-ui/simpleDialog";
 
 const RealmAnvil: React.FC = () => {
